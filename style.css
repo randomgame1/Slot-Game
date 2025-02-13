@@ -1,0 +1,282 @@
+/* Basic Reset & Colors */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background: #f5f5f5;
+  }
+  
+  /* Header/Banner */
+  .header-bar {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  .header-bar h1 {
+    margin: 0 0 10px;
+  }
+  .subheading {
+    margin: 0;
+    font-weight: normal;
+    font-size: 1em;
+    opacity: 0.9;
+  }
+  
+  /* Main Container */
+  .main-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 280px;
+    border: 2px solid #ccc;
+    padding: 15px;
+    background-color: #fff;
+    border-radius: 6px;
+    margin-bottom: 20px;
+  }
+  #dynamicPaytable table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9em;
+  }
+  #dynamicPaytable th {
+    background-color: #4caf50;
+    color: #fff;
+    text-align: left;
+  }
+  #dynamicPaytable td,
+  #dynamicPaytable th {
+    border: 1px solid #ccc;
+    padding: 6px;
+  }
+  #dynamicPaytable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  #paylinesInfo {
+    margin-top: 20px;
+  }
+  #paylinesList {
+    padding-left: 20px;
+  }
+  
+  #educationalInfo {
+    margin-top: 20px;
+    font-size: 0.85em;
+  }
+  #educationalInfo ul {
+    padding-left: 20px;
+  }
+  
+  /* Slot Area */
+  .slot-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 600px;
+  }
+  
+  /* Control Panel */
+  .control-panel {
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+  }
+  .controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  .control-item {
+    display: flex;
+    flex-direction: column;
+    font-size: 0.9em;
+  }
+  .control-item input,
+  .control-item select {
+    font-size: 0.9em;
+    padding: 3px;
+  }
+  
+  /* Balance Section */
+  .balance {
+    background-color: #e8f5e9;
+    border: 1px solid #4caf50;
+    border-radius: 6px;
+    padding: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    width: 100%;
+  }
+  .balance-label {
+    font-weight: bold;
+    margin-right: 8px;
+  }
+  .balance-value {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* Reels & Overlay */
+  .reels-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .reels-area {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  .reel-container {
+    width: 80px;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+    background-color: #fff;
+    border: 2px solid #4caf50;
+    border-radius: 8px;
+  }
+  .reel {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .reel img {
+    width: 80px;
+    height: 60px;
+  }
+  
+  /* Overlay for winning lines (only shown post-spin for wins) */
+  .line-overlay {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    z-index: 10;
+  }
+  .payline-line {
+    position: absolute;
+    height: 2px;
+    left: 0;
+    right: 0;
+    border-radius: 1px;
+    opacity: 0.9;
+    animation: glowFlicker 1.5s infinite alternate;
+  }
+  @keyframes glowFlicker {
+    0% { box-shadow: 0 0 5px #fff; }
+    100% { box-shadow: 0 0 15px #fff; }
+  }
+  
+  /* Message / Results Area */
+  #messageArea {
+    width: 100%;
+    min-height: 40px;
+    text-align: left;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 6px;
+    padding: 15px;
+    font-size: 0.95em;
+    margin-bottom: 20px;
+  }
+  
+  /* Color-coded text */
+  .win-text {
+    color: green;
+  }
+  .lose-text {
+    color: red;
+  }
+  
+  /* Buttons & Modal */
+  button {
+    cursor: pointer;
+  }
+  .info-btn {
+    background-color: #4caf50;
+    border: none;
+    color: white;
+    padding: 7px 14px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    margin-bottom: 10px;
+  }
+  .info-btn:hover {
+    background-color: #45a049;
+  }
+  .modal {
+    display: none;
+    position: fixed;
+    z-index: 999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  .modal-content {
+    background-color: #fefefe;
+    margin: 8% auto;
+    padding: 20px;
+    border: 2px solid #888;
+    width: 80%;
+    max-width: 600px;
+    position: relative;
+    border-radius: 6px;
+  }
+  .close {
+    color: #aaa;
+    font-size: 24px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+  }
+  .close:hover {
+    color: #000;
+  }
+  
+  /* Error styling */
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+      align-items: center;
+    }
+    .sidebar {
+      width: 90%;
+    }
+    .slot-area {
+      width: 90%;
+    }
+    #messageArea {
+      width: 90%;
+    }
+  }
+  

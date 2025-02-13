@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <title>Educational Slot Game with Partial Combos & Glowing Lines</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="header-bar">
+    <h1>Educational Slot Game</h1>
+    <h2 class="subheading">Interval Spin, Wild Doubles, Bonus Free Spins &amp; Detailed Math</h2>
+  </div>
+
+  <div class="main-container">
+
+    <!-- Sidebar with paytable, paylines info & educational concepts -->
+    <div class="sidebar">
+      <h2>Game Rules &amp; Paytable</h2>
+      <div id="dynamicPaytable"></div>
+
+      <div id="paylinesInfo">
+        <h3>Paylines Info</h3>
+        <ul id="paylinesList"></ul>
+      </div>
+
+      <div id="educationalInfo">
+        <h3>Concepts Explained</h3>
+        <ul>
+          <li><strong>RTP (Return to Player):</strong> The expected percentage of wagered dollars returned over time.</li>
+          <li><strong>Volatility:</strong> Risk level (high = bigger but less frequent wins).</li>
+          <li><strong>Rows &amp; Lines:</strong> Rows determine grid height (3–5); Lines are the horizontal paylines. For example, with 5 rows you can have up to 5 paylines.</li>
+          <li><strong>Bet Amount:</strong> The total wager for each spin (in dollars).</li>
+          <li><strong>Denomination:</strong> Bet per line = (Bet Amount / Lines).</li>
+          <li><strong>Credits:</strong> Base payout for matching symbols; wilds double the credits.</li>
+          <li><strong>Bonus:</strong> 3 bonus symbols anywhere trigger free spins.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Slot area with controls, reels and overlay -->
+    <div class="slot-area">
+
+      <!-- Controls Section -->
+      <div class="control-panel">
+        <div class="controls">
+          <div class="control-item">
+            <label for="reelsInput">Reels (3–5):</label>
+            <input id="reelsInput" type="number" min="3" max="5" value="3" style="width:40px;" />
+          </div>
+          
+          <div class="control-item">
+            <label for="rowsInput">Rows (3–5):</label>
+            <input id="rowsInput" type="number" min="3" max="5" value="3" style="width:40px;" />
+          </div>
+
+          <div class="control-item">
+            <label for="linesInput">Lines:</label>
+            <input id="linesInput" type="number" min="1" max="5" value="3" style="width:40px;" />
+          </div>
+          
+          <div class="control-item">
+            <label for="rtpInput">RTP (%):</label>
+            <input id="rtpInput" type="number" min="1" max="99" value="95" style="width:40px;" />
+          </div>
+
+          <div class="control-item">
+            <label for="volatilityInput">Volatility:</label>
+            <select id="volatilityInput" style="width:70px;">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+          
+          <div class="control-item">
+            <label for="betAmountInput">Bet Amount ($):</label>
+            <input id="betAmountInput" type="number" min="1" max="9999" value="10" style="width:60px;" />
+          </div>
+
+          <button id="spinButton">Spin</button>
+        </div>
+      </div>
+
+      <!-- Balance & Free Spins Display -->
+      <div class="balance">
+        <span class="balance-label">Balance:</span> 
+        <span id="balanceDisplay" class="balance-value">1000</span> dollars 
+        | Free Spins Left: <span id="freeSpinsDisplay">0</span>
+      </div>
+
+      <!-- Reels & Overlay -->
+      <div class="reels-wrapper">
+        <div class="reels-area" id="reelsArea">
+          <div class="reel-container">
+            <div class="reel" id="reel0"></div>
+          </div>
+          <div class="reel-container">
+            <div class="reel" id="reel1"></div>
+          </div>
+          <div class="reel-container">
+            <div class="reel" id="reel2"></div>
+          </div>
+          <div class="reel-container">
+            <div class="reel" id="reel3"></div>
+          </div>
+          <div class="reel-container">
+            <div class="reel" id="reel4"></div>
+          </div>
+        </div>
+        <!-- This overlay will show glowing lines for winning paylines (post-spin) -->
+        <div class="line-overlay" id="lineOverlay"></div>
+      </div>
+
+      <!-- Message Area for detailed spin results -->
+      <div id="messageArea"></div>
+
+      <!-- Additional Info Modal -->
+      <button id="infoButton" class="info-btn">Additional Info</button>
+      <div id="infoModal" class="modal">
+        <div class="modal-content">
+          <span id="closeModal" class="close">&times;</span>
+          <h2>Slot Game Mechanics &amp; Educational Overview</h2>
+          <p><strong>Bet Amount</strong>: Total dollars wagered per spin.</p>
+          <p><strong>Denomination</strong>: Bet Amount / Number of Lines (paylines) = dollars per line.</p>
+          <p><strong>Credits</strong>: Base payout for matching symbols; wilds double credits.</p>
+          <p><strong>Partial Combos</strong>: A contiguous run of 3, 4, or 5 matching symbols (or wilds) pays out accordingly.</p>
+          <p><strong>Bonus</strong>: 3 bonus symbols anywhere trigger free spins.</p>
+          <hr/>
+          <p>This game shows detailed math for each spin. It calculates Risk per spin (Bet Amount), Denomination per line, and then the win per line (Credits × Denomination). Winning lines are highlighted with a glowing effect.</p>
+        </div>
+      </div>
+
+    </div><!-- /slot-area -->
+
+  </div><!-- /main-container -->
+
+  <script src="script.js"></script>
+</body>
+</html>
